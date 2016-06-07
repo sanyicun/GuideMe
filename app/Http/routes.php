@@ -13,6 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
+   
 });
 
 /*
@@ -28,4 +29,13 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
     //
+});
+
+
+//home
+//Route::group(['prefix' => 'home','middleware' => ['auth']],function()
+
+Route::group(['prefix' => 'home'],function()
+{
+    Route::get('/','HomeController@index');
 });
