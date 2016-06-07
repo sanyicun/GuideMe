@@ -12,11 +12,11 @@ use Config;
 use Log;
 use Session;
 
-class HomeController extends Controller
+class HomeController extends BaseController
 {
     public function index(Request $request)
     {
-    	Log::Debug("has request");
+    	Log::info("has request");
     	return view('home.index')->with('id',1);
     }
 
