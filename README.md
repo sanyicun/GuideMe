@@ -8,3 +8,12 @@ from: http://www.golaravel.com/download/
 2. php artisan key:generate  --为应用生成 key 。这也是 laravel-installer 自动完成的收尾工作。
 
 3. chmod 777 storage  --change writable of dir
+
+make sure your webservice support route
+
+[nginx] add following code
+
+location / {
+    try_files $uri $uri/ /index.php?$query_string;
+}
+
