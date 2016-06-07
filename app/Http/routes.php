@@ -35,7 +35,7 @@ Route::group(['middleware' => ['web']], function () {
 //home
 //Route::group(['prefix' => 'home','middleware' => ['auth']],function()
 
-Route::group(['prefix' => ['home']],function()
+Route::group(['prefix' => 'home','namespace' => 'Home'],function()
 {
     Route::get('/','HomeController@index');
 });
