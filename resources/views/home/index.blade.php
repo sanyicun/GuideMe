@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <title>AUI</title>
-    <link rel="stylesheet" type="text/css" href="../../css/aui.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/aui/css/aui.css')}}" />
 </head>
 <style>
 .aui-iconfont {
@@ -19,8 +19,8 @@
 <body>
     <div class="aui-bar aui-bar-nav aui-bar-warning" id="aui-header">AUI</div>
 </body>
-<script type="text/javascript" src="../../script/api.js"></script>
-<script type="text/javascript" src="../../script/aui-alert.js" ></script>
+<script type="text/javascript" src="{{assert('/aui/script/api.js')}}"></script>
+<script type="text/javascript" src="{{assert('/aui/script/aui-alert.js')}}" ></script>
 <script type="text/javascript">
     apiready = function(){
         api.parseTapmode();
