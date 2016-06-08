@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <title>AUI</title>
+    <title>GuideMe</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('/aui/css/aui.css')}}" />
 </head>
 <style>
@@ -17,7 +17,7 @@
 }*/
 </style>
 <body>
-    <div class="aui-bar aui-bar-nav aui-bar-warning" id="aui-header">AUI</div>
+    <div class="aui-bar aui-bar-nav aui-bar-warning" id="aui-header">FollowMe</div>
 </body>
 <script type="text/javascript" src="{{asset('/aui/script/api.js')}}"></script>
 <script type="text/javascript" src="{{asset('/aui/script/aui-alert.js')}}" ></script>
