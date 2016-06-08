@@ -23,6 +23,7 @@
 <script type="text/javascript" src="{{asset('/aui/script/aui-alert.js')}}" ></script>
 <script type="text/javascript">
     apiready = function(){
+        alert('hello');
         api.parseTapmode();
         var header = $api.byId('aui-header');
         $api.fixStatusBar(header);
