@@ -19,7 +19,7 @@
 <body>
     <div class="aui-bar aui-bar-nav aui-bar-warning" id="aui-header">FollowMe</div>
 </body>
-<script type="text/javascript" src="{{asset('/aui/script/api.js')}}"></script>
+<script type="text/javascript" src="{{asset('/aui/script/api.js')}}" ></script>
 <script type="text/javascript" src="{{asset('/aui/script/aui-alert.js')}}" ></script>
 <script type="text/javascript">
     apiready = function(){
