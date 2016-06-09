@@ -17,7 +17,7 @@ class HomeController extends BaseController
     public function index(Request $request)
     {
     	Log::info("has request");
-    	return view('home.home')->with('id',1);
+    	return view('home.index')->with('id',1);
     }
 
 }
