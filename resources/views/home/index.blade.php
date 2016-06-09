@@ -16,10 +16,7 @@
     background-position: 0 bottom;
 }*/
 </style>
-</head>
-<body>
-    <div class="aui-bar aui-bar-nav aui-bar-warning" id="aui-header">FollowMe</div>
-</body>
+
 <script type="text/javascript" src="{{asset('/aui/script/api.js')}}" />
 <script type="text/javascript" src="{{asset('/aui/script/aui-alert.js')}}" />
 <script type="text/javascript">
@@ -79,4 +76,11 @@
         })
     }
 </script>
+
+</head>
+<body>
+    <div class="aui-bar aui-bar-nav aui-bar-warning" id="aui-header">FollowMe</div>
+</body>
+
+
 </html>
