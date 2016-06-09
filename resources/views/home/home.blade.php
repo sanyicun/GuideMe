@@ -242,6 +242,7 @@ img.wx {
         });
     }
     function openWin(name){
+        alert("open win");
         var delay = 0;
         if(api.systemType != 'ios'){
             delay = 300;
