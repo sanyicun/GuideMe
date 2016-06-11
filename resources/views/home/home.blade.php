@@ -1,302 +1,116 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
-    <title>APP-Home of Follow Me</title>
+    <title>职涯帮</title>
     <link rel="stylesheet" type="text/css" href="{{asset('/aui/css/aui.css')}}" />
+    <style>
+        .aui-bar {
+            background: #3bafda;
+            color: #ffffff
+        }
+        .aui-nav {
+            background-color: none;
+        }
+        .aui-nav .aui-bar-tab {
+            background-color: #fff;
+            border-top:1px solid #eee;
+        }
+        .aui-nav .aui-bar-tab .aui-iconfont{
+            font-size: 26px !important;
+        }
+        .aui-nav .aui-bar-tab .aui-iconfont, .aui-nav .aui-bar-tab p {
+            color: #a2a2a2;
+        }
+    </style>
 </head>
-<style type="text/css">
-.active {
-    background-color: #f4f4f4;
-}
-img.wx {
-    /*display: inline-block;*/
-    /*display: block;*/
-    /*display: list-item;*/
-    display: inline;
-    float: left;
-    width: 27px;
-    /*height: 24px;*/
-    line-height: 27px;
-    margin-right: 10px;
-    background-color: #f4f4f4;
-    border-radius: 3px;
-    /*border: 1px solid #ccc;*/
-}
-</style>
 <body>
-    <div class="aui-content">
-        <ul class="aui-list-view aui-in">
-            <li class="aui-list-view-cell" tapmode onclick="openTplIndexWin()">
-                <div class="aui-arrow-right">
-                    <i class="aui-iconfont aui-icon-clothes aui-bg-warning"></i>模板
-                    <span class="aui-badge aui-badge-danger">新增</span>
-                </div>
+    <header class="aui-bar aui-bar-nav" id="aui-header">
+        <span class="aui-iconfont aui-icon-left aui-pull-left" tapmode onclick="closeWin()"></span>
+        <div class="aui-title" id="title">帮主</div>
+        <a class="aui-pull-right" tapmode onclick="askAdd()">
+            提问<span class="aui-iconfont aui-icon-right"></span>
+        </a>
+    </header>
+    <footer class="aui-nav" id="aui-footer">
+        <ul class="aui-bar-tab">
+            <li class="active-info" id="helper_list" tapmode onclick="randomSwitchBtn(0,'helper_list')">
+                <span class="aui-iconfont aui-icon-crownfill"></span>
+                <p>帮主</p>
             </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('explain')">
-                <div class="aui-arrow-right aui-text-danger">
-                    <i class="aui-iconfont aui-icon-sort aui-bg-danger"></i>更新说明
-                    <span class="aui-badge aui-badge-danger aui-pull-right">V 1.2.1</span>
-                </div>
+            <li id="ask_list" tapmode onclick="randomSwitchBtn(1,'ask_list')">
+                <span class="aui-iconfont aui-icon-commandfill"></span>
+                <p>问答</p>
             </li>
-            <li class="aui-list-view-cell" tapmode onclick="share()" id="share">
-                <div class="aui-arrow-right aui-text-primary">
-                    <img src="../image/wx.png" class="wx aui-border">
-                    <span>分享至朋友圈</span>
-                </div>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openClub()" id="share">
-                <div class="aui-arrow-right">
-                    <i class="aui-iconfont aui-icon-markfill aui-bg-warning"></i>
-                    <span class="aui-text-info">社区问答</span>
-                </div>
+            <li id="my" tapmode onclick="randomSwitchBtn(2,'my')">
+                <span class="aui-iconfont aui-icon-peoplefill"></span>
+                <p>我的</p>
             </li>
         </ul>
-    </div>
-    <div class="aui-content">
-        <ul class="aui-list-view">
-            <!-- <li class="aui-list-view-cell" tapmode onclick="openWin('demo1')">
-                <a class="aui-arrow-right">测试<span class="aui-badge aui-badge-danger">新增</span></a>
-            </li> -->
-            <li class="aui-list-view-cell" tapmode onclick="openWin('lanuch')">
-                <a class="aui-arrow-right">引导页(基于轮播组件)<span class="aui-badge aui-badge-warning">新增</span></a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('pull_refresh')">
-                <a class="aui-arrow-right">下拉刷新组件（一）</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('pull_refresh_2')">
-                <a class="aui-arrow-right">下拉刷新组件（二）</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('slide')">
-                <a class="aui-arrow-right">轮播组件<span class="aui-badge aui-badge-warning">优化</span></a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('list_swipe')">
-                <a class="aui-arrow-right">列表右滑显示菜单<span class="aui-badge aui-badge-warning">优化</span></a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('accordion')">
-                <a class="aui-arrow-right">手风琴折叠面板</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('flex')">
-                <a class="aui-arrow-right">AUI Flex</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('border')">
-                <a class="aui-arrow-right">边框样式</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('indexed_list')">
-                <a class="aui-arrow-right">索引列表</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openSlider('x')">
-                <a class="aui-arrow-right">左右滑动全屏展示<span class="aui-badge aui-badge-info">优化新增</span></a>
-
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openSlider('y')">
-                <a class="aui-arrow-right">上下滑动全屏展示<span class="aui-badge aui-badge-info">优化新增</span></a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('calendar')">
-                <a class="aui-arrow-right">日历<span class="aui-badge aui-badge-warning">优化</span></a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('calendar_slide')">
-                <a class="aui-arrow-right">日历上下滑动展示<span class="aui-badge">待优化</span></a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('button')">
-                <a class="aui-arrow-right">按钮</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('form')">
-                <a class="aui-arrow-right">表单</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('switch')">
-                <a class="aui-arrow-right">switch开关</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('checkbox')">
-                <a class="aui-arrow-right">checkbox选择</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('radio')">
-                <a class="aui-arrow-right">radio选择</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('list')">
-                <a class="aui-arrow-right">普通列表</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('list_arrow')">
-                <a class="aui-arrow-right">带有角标和箭头的列表</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('list_thumb')">
-                <a class="aui-arrow-right">缩略图列表</a>
-            </li>
-
-            <li class="aui-list-view-cell" tapmode onclick="openWin('list_image')">
-                <a class="aui-arrow-right">图片列表布局</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('header_bar')">
-                <a class="aui-arrow-right">导航栏</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('footer_tab')">
-                <a class="aui-arrow-right">底部工具栏</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('list_nine')">
-                <a class="aui-arrow-right">九宫格</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('list_sixteen')">
-                <a class="aui-arrow-right">十六宫格</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('loading')">
-                <a class="aui-arrow-right">个性loading</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('tab')">
-                <a class="aui-arrow-right">TAB菜单</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('contact_book')">
-                <a class="aui-arrow-right">通讯录</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('chat')">
-                <a class="aui-arrow-right">聊天界面</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('iconfont')">
-                <a class="aui-arrow-right">图标</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('list_counter')">
-                <a class="aui-arrow-right">计数列表(购物车类样式疯狂拼合)</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('dialog')">
-                <a class="aui-arrow-right">弹出提示样式(dialog)</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('status')">
-                <a class="aui-arrow-right">带状态的表单／列表</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('toast')">
-                <a class="aui-arrow-right">Toast</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('tips')">
-                <a class="aui-arrow-right">信息提示条</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('searchbar')">
-                <a class="aui-arrow-right">搜索条</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('range')">
-                <a class="aui-arrow-right">滑块</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('timeline')">
-                <a class="aui-arrow-right">时间轴</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('progress')">
-                <a class="aui-arrow-right">进度条</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('alert')">
-                <a class="aui-arrow-right">自定义弹出层</a>
-            </li>
-            <li class="aui-list-view-cell" tapmode onclick="openWin('waterfall')">
-                <a class="aui-arrow-right">瀑布流</a>
-            </li>
-        </ul>
-    </div>
+    </footer>
 </body>
-<script type="text/javascript" src="{{asset('/aui/script/api.js')}}" ></script>
+<script type="text/javascript" src="{{asset('/aui/script/api.js')}}"></script>
 <script type="text/javascript">
-    function share(argument) {
-        var wx = api.require('wx');
-        wx.shareWebpage({
-            apiKey: '',
-            scene: 'timeline',
-            title: 'AUI 一个靠谱的跨平台移动前端框架',
-            description: '',
-            thumb: 'widget://image/aui-icon.png',
-            contentUrl: 'http://www.auicss.com'
-        }, function(ret, err){
-            if(ret.status){
-                api.alert({
-                    title: 'AUI',
-                    msg: '分享成功'
-                });
-            }
-        });
+    function askAdd(){
+        api.openWin({
+            name:'ask_add_win',
+            url:'ask_add_win.html',
+            delay:300
+        })
     }
-    apiready = function () {
+    function closeWin(){
+        api.closeWin({});
+    }
+    apiready = function(){
         api.parseTapmode();
-        // api.openWin({
-        //     name: 'ad_win',
-        //     url: 'ad_win.html',
-        //     bounces:false,
-        //     vScrollBarEnabled:false,
-        //     hScrollBarEnabled:false,
-        //     animation:{
-        //         type:"fade"
-        //     }
-        // });
-        // if(api.systemType=='ios'){
-        //     document.getElementById("share").style.display = "none";
-        // }
-    }
-    function openClub(){
-        var delay = 0;
-        if(api.systemType != 'ios'){
-            delay = 300;
-        }
-        api.openWin({
-            name: 'club_win',
-            url: 'club_win.html',
-            bounces:false,
-            delay: delay,
-            slidBackEnabled:true,
-            vScrollBarEnabled:false
+        var header = $api.byId('aui-header');
+        $api.fixStatusBar(header);
+        openGroup();
+    };
+    function openGroup(){
+        var header = $api.byId('aui-header');
+        var headerPos = $api.offset(header);
+        var body_h = $api.offset($api.dom('body')).h;
+        var footer_h = $api.offset($api.byId('aui-footer')).h;
+        api.openFrameGroup({
+            name: 'indexGroup',
+            scrollEnabled: true,
+            rect:{x:0, y:headerPos.h, w:'auto', h:body_h - headerPos.h - footer_h},
+            index: 0,
+            frames: [{
+                name:'helper_list',
+                url:'helper_list.html',
+                vScrollBarEnabled:false,
+                hScrollBarEnabled:false,
+                bounces:false
+            },{
+                name:'ask_list',
+                url:'ask_list.html',
+                vScrollBarEnabled:false,
+                hScrollBarEnabled:false,
+                bounces:false
+            },{
+                name:'my',
+                url:'my.html',
+                vScrollBarEnabled:false,
+                hScrollBarEnabled:false,
+                bounces:false
+            }]
+        }, function (ret, err) {
+            $api.removeCls($api.dom('#aui-footer li.active-info'),'active-info');
+            $api.addCls($api.byId(''+ret.name+''),'active-info');
         });
     }
-    function openWin(name){
-        alert("open win");
-        var delay = 0;
-        if(api.systemType != 'ios'){
-            delay = 300;
-        }
-        api.openWin({
-            name: ''+name+'_win',
-            url: ''+name+'_win.html',
-            bounces:false,
-            delay: delay,
-            slidBackEnabled:true,
-            vScrollBarEnabled:false
-        });
-    }
-    function openSlider(direction){
-        var delay = 0;
-        if(api.systemType != 'ios'){
-            delay = 300;
-        }
-        api.openWin({
-            name: 'slider_full_win',
-            url: 'slider_full_win.html',
-            bounces:false,
-            delay: delay,
-            pageParam:{
-                direction:direction
-            },
-            animation:{
-                type:'push',
-                subType:'from_bottom'
-            }
-        });
-    }
-    function openTplIndexWin(){
-        var delay = 0;
-        if(api.systemType != 'ios'){
-            delay = 300;
-        }
-        api.openWin({
-            name: 'tpl/index_win',
-            url: 'tpl/index_win.html',
-            bounces:false,
-            delay: delay
-        });
-    }
-    function openDemo(){
-        var delay = 0;
-        if(api.systemType != 'ios'){
-            delay = 300;
-        }
-        api.openWin({
-            name: 'demo',
-            url: 'demo.html',
-            bounces:false,
-            delay: delay
+
+    // 随意切换按钮
+    function randomSwitchBtn(index,name) {
+        $api.removeCls($api.dom('#aui-footer li.active-info'),'active-info');
+        $api.addCls($api.byId(''+name+''),'active-info');
+        api.setFrameGroupIndex({
+            name: 'indexGroup',
+            index: index
         });
     }
 </script>
