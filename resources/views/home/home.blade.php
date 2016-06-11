@@ -1,12 +1,12 @@
 <!doctype html>
 <html>
-@include('head')
+@include('home.head')
 <body>
-    @include('header')
+    @include('home.header')
     
-    @include('ask')
+    @include('home.ask')
 
-    @include('footer')
+    @include('home.footer')
 </body>
 
    
