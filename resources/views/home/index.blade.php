@@ -27,16 +27,11 @@
         $api.fixStatusBar(header);
         var headerPos = $api.offset(header);
         var body_h = $api.offset($api.dom('body')).h;
-        api.openFrame({
+        api.openWin({
             name: 'main',
-            url: "{{asset('/aui/html/main.html')}}",
-            bounces: true,
-            rect: {
-                x: 0,
-                y: headerPos.h,
-                w: 'auto',
-                h: 'auto'
-            }
+            url: "{{asset('/aui/html/tpl/jobteacher/index.html')}}",
+            bounces: false,
+            
         });
         var ajpush = api.require('ajpush');
 
