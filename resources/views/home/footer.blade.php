@@ -15,7 +15,7 @@
         </ul>
 <script type="text/javascript">
     function switchTab(index){
-        window.location = "./tab=" + index;
+        window.location = "./home?tab=" + index;
     }
 </script>
  </footer>
