@@ -16,8 +16,9 @@ class HomeController extends BaseController
 {
     public function index(Request $request)
     {
-    	Log::info("has request");
+    	
     	$tab=$request['tab'];
+    	Log::info("has request" . $request. " has tab: " + $tab);
     	switch ($tab) {
     		case '1':
     			# code...
@@ -25,7 +26,7 @@ class HomeController extends BaseController
     			
     		case '2':
     			return view('home.order');
-    			
+
     		case '3':
     			return view('home.mine');
     		default:
