@@ -17,6 +17,21 @@ class HomeController extends BaseController
     public function index(Request $request)
     {
     	Log::info("has request");
+    	$tab=$request['tab'];
+    	switch ($tab) {
+    		case '1':
+    			# code...
+    			return view('home.nearby');
+    			
+    		case '2':
+    			return view('home.order');
+    			
+    		case '3':
+    			return view('home.mine');
+    		default:
+    			# code...
+    			break;
+    	}
     	return view('home.home')->with('id',1);
     }
 

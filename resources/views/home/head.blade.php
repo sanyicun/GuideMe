@@ -74,4 +74,22 @@
             color: #ff9900;
         }
     </style>
+
+    <style type="text/css">
+        img.aui-img-object {
+            border-radius: 50%;
+        }
+        .laud {
+            font-size: 14px;
+            color: #999;
+        }
+        p {
+            margin: 5px 0 !important;
+            display: table;
+        }
+        .helper-tag {
+            color: #666666;
+            font-size: 12px;
+        }
+    </style>
 </head>
