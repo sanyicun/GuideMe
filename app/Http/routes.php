@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+
     return view('welcome');
    
 });
@@ -32,10 +33,13 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 
-//home
+//home APIs
 //Route::group(['prefix' => 'home','middleware' => ['auth']],function()
 
 Route::group(['prefix' => 'home','namespace' => 'Home'],function()
 {
     Route::get('/','HomeController@index');
 });
+
+//APIs
+

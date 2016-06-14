@@ -16,7 +16,12 @@ class HomeController extends BaseController
 {
     public function index(Request $request)
     {
-    	
+    	$json = array(
+            "id"=>1,
+            "name"=>"andrew",
+            "phone"=>"13522712205");
+        return json_encode($json);
+        /*
     	$tab=$request['tab'];
     	Log::info("has request" . $request. " has tab: " + $tab);
     	switch ($tab) {
@@ -34,6 +39,7 @@ class HomeController extends BaseController
     			break;
     	}
     	return view('home.home')->with('id',1);
+        */
     }
 
 }
