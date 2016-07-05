@@ -45,6 +45,7 @@ class HomeController extends BaseController
     }
     public function guides(Request $request)
     {
+        /*
         $validator = Validator::make($request->all(),
             [
                 'uid' => 'required',
@@ -89,7 +90,7 @@ class HomeController extends BaseController
                 "message"=>"empty result",
                 "data" =>$data
                 );
-
+    */
     }
 
 }
