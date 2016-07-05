@@ -12,7 +12,7 @@
 <body>
 <div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
     <a href="#top" title="">
-        <img class="am-gotop-icon-custom" src="img/goTop.png" />
+        <img class="am-gotop-icon-custom" src="{{ asset('/amazeui/img/goTop.png')}}" />
     </a>
 </div>
 
@@ -125,7 +125,7 @@
       <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">
         <div class="pet_list_one_info">
             <div class="pet_list_one_info_l">
-                <div class="pet_list_one_info_ico"><img src="img/a1.png" alt=""></div>
+                <div class="pet_list_one_info_ico"><img src="{{ asset('/amazeui/img/a1.png')}}" alt=""></div>
                 <div class="pet_list_one_info_name">Super invincible 菁 </div>
             </div>
             <div class="pet_list_one_info_r">
@@ -146,7 +146,7 @@
       <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">
         <div class="pet_list_one_info">
             <div class="pet_list_one_info_l">
-                <div class="pet_list_one_info_ico"><img src="img/a6.png" alt=""></div>
+                <div class="pet_list_one_info_ico"><img src="{{ asset('/amazeui/img/a6.png')}}" alt=""></div>
                 <div class="pet_list_one_info_name">La Da Dee</div>
             </div>
             <div class="pet_list_one_info_r">
@@ -168,7 +168,7 @@
       <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-right pet_list_one_block">
         <div class="pet_list_one_info">
             <div class="pet_list_one_info_l">
-                <div class="pet_list_one_info_ico"><img src="img/a2.png" alt=""></div>
+                <div class="pet_list_one_info_ico"><img src="{{ asset('/amazeui/img/a2.png')}}" alt=""></div>
                 <div class="pet_list_one_info_name">AbsScript</div>
             </div>
             <div class="pet_list_one_info_r">
@@ -190,7 +190,7 @@
             <li class="am-g am-list-item-desced pet_list_one_block">
               <div class="pet_list_one_info">
             <div class="pet_list_one_info_l">
-                <div class="pet_list_one_info_ico"><img src="img/a3.png" alt=""></div>
+                <div class="pet_list_one_info_ico"><img src="{{ asset('/amazeui/img/a3.png')}}" alt=""></div>
                 <div class="pet_list_one_info_name">养了猫的飞飞</div>
             </div>
             <div class="pet_list_one_info_r">
@@ -284,7 +284,7 @@
             <li class="am-g am-list-item-desced pet_list_one_block">
               <div class="pet_list_one_info">
             <div class="pet_list_one_info_l">
-                <div class="pet_list_one_info_ico"><img src="img/a4.png" alt=""></div>
+                <div class="pet_list_one_info_ico"><img src="{{ asset('/amazeui/img/a4.png')}}" alt=""></div>
                 <div class="pet_list_one_info_name">大兔</div>
             </div>
             <div class="pet_list_one_info_r">
@@ -302,7 +302,7 @@
       <li class="am-g am-list-item-desced pet_list_one_block">
               <div class="pet_list_one_info">
             <div class="pet_list_one_info_l">
-                <div class="pet_list_one_info_ico"><img src="img/a5.png" alt=""></div>
+                <div class="pet_list_one_info_ico"><img src="{{ asset('/amazeui/img/a5.png')}}" alt=""></div>
                 <div class="pet_list_one_info_name">Hope</div>
             </div>
             <div class="pet_list_one_info_r">
@@ -311,7 +311,7 @@
         </div>
         <div class=" am-list-main">
             <h3 class="am-list-item-hd pet_list_one_bt"><a href="###" class="">心情不好了，就来看看这只狗！</a></h3>
-            <div class="pet_list_zt_img"><img src="img/c1.png" alt=""></div>
+            <div class="pet_list_zt_img"><img src="{{ asset('/amazeui/img/c1.png')}}" alt=""></div>
 
             <div class="am-list-item-text pet_list_two_text">猫咪不像人，猫咪的情绪不会写在脸上，反馈给我们的信息更多的应该是行为上肢体上的，当然从叫声中也会反应一些信息，那么要想“抓住它的心，就一定要抓住它的胃吗？”从它的行为和肢体语言当中我们可以读懂什么呢？</div>
 
@@ -338,7 +338,7 @@
 <div class="pet_article_dowload pet_dowload_more_top_off">
       <div class="pet_article_dowload_title">关于Amaze UI</div>
       <div class="pet_article_dowload_content pet_dowload_more_top_bg"><div class="pet_article_dowload_triangle pet_dowload_more_top_san"></div>
-      <div class="pet_article_dowload_ico"><img src="img/footdon.png" alt=""></div>
+      <div class="pet_article_dowload_ico"><img src="{{ asset('/amazeui/img/footdon.png')}}" alt=""></div>
       <div class="pet_article_dowload_content_font">
 Amaze UI 以移动优先（Mobile first）为理念，从小屏逐步扩展到大屏，最终实现所有屏幕适配，适应移动互联潮流。 </div>
       <div class="pet_article_dowload_all">
