@@ -17,6 +17,7 @@ class HomeController extends BaseController
 {
     public function index(Request $request)
     {
+        return view('main.home');
     	$json = array(
             "id"=>1,
             "name"=>"andrew",
