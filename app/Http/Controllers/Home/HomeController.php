@@ -11,6 +11,7 @@ use App\Utils\HttpRequest;
 use Config;
 use Log;
 use Session;
+use User;
 
 class HomeController extends BaseController
 {
@@ -40,6 +41,54 @@ class HomeController extends BaseController
     	}
     	return view('home.home')->with('id',1);
         */
+    }
+    public function guides(Request $request)
+    {
+        $validator = Validator::make($request->all(),
+            [
+                'uid' => 'required',
+                'page'=>'integer',
+                
+            ],
+            [
+                'search_content.required'       => json_encode(['1', '订单搜索词必须存在']),
+                'last_order_id.integer'         => json_encode(['1', '必须是个整数']),
+            ]
+        );
+
+        if($validator->fails()){
+            $message = $validator->messages()->first();
+            return $this->response(json_decode($message)[0], json_decode($message)[1]);
+        }
+
+        $uid = $request->input('uid');
+        $page = $request->input('page');
+        $page_record_count = 20;
+        $users = User::where('id','>',$page * $page_record_count)->take($page_record_count)->get();
+        if(is_null($users)){
+            $result = array(
+                "result"=>"1",
+                "message"=>"empty result",
+
+                );
+            return json_encode($result);
+        }
+
+        $data = [];
+        foreach ($users as $key => $value) {
+            $data.append(new array(
+                'name'=>$value->name,
+                'desc'=>$value->desc,
+                'location'=>$value->location,
+                'photo'=>$value->photo
+                ));
+        }
+        $result = array(
+                "result"=>"1",
+                "message"=>"empty result",
+                "data" =>$data
+                );
+
     }
 
 }

@@ -34,11 +34,23 @@ Route::group(['middleware' => ['web']], function () {
 
 
 //home APIs
+Route::group(['prefix' => 'guideme/v1','middleware' => 'verifytoken'], function(){
+
+	Route::post('sendcaptcha', 'ApiUserController@sendCaptcha');
+	Route::post('user/register', 'ApiUserController@register');
+	Route::post('user/login', 'ApiUserController@login');
+	Route::post('user/logout', 'ApiUserController@logout');
+
+});
 //Route::group(['prefix' => 'home','middleware' => ['auth']],function()
 
 Route::group(['prefix' => 'home','namespace' => 'Home'],function()
 {
     Route::get('/','HomeController@index');
+    Route::post('/guides', 'HomeController@guides');
+    Route::post('/schedules', 'HomeController@schedules');
+    Route::post('/orders', 'HomeController@orders');
+    
 });
 
 //APIs
